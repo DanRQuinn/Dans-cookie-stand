@@ -4,26 +4,25 @@ let hours = ['6 am', '7 am', '8 am', '9 am', '10 am', '11 am', '12 pm', '1 pm', 
 
 const storeTableBody = document.querySelector('tbody');
 console.log(storeTableBody);
+
 const storeTableHead = document.querySelector('thead');
 
 let storeArray = []
 
 let seattleContainer = document.getElementById("seattleList");
 
+const tableElement = document.getElementById('Table');
 
 function Store(name, min, max, avg) {
-    this.name = name,
+  this.name = name,
     this.min = min,
     this.max = max,
     this.avg = avg,
     this.cookiesPerHourArray = [],
     this.dailyTotal = 0,
     storeArray.push(this)
-    this.introduce = function () {
-      console.log(`${name}`);
-    }
-  this.render = function () {
-
+  this.introduce = function () {
+    console.log(`${name}`);
   }
   this.generateRandomNumberOfC = function () {
     return Math.floor(Math.random() * (this.max - this.min + 1) + this.min);
@@ -37,7 +36,7 @@ function Store(name, min, max, avg) {
       }
     },
     this.renderList = function () {
-      for (let i = 0; i < hours.length - 1; i++) {
+      for (let i = 0; i < hours.length; i++) {
         let li = document.createElement('li');
         li.textContent = `${hours[i]}: ${this.cookiesSoldPerHourArray[i]} cookies`;
         seattleContainer.appendChild(li);
@@ -45,14 +44,35 @@ function Store(name, min, max, avg) {
       li.textContent = `Total: ${this.dailyTotal} cookies`;
       seattleContainer.appendChild(li);
     }
+  this.tableRender = function () {
+    let tableRow = document.createElement('tr');
+    tableElement.appendChild(tableRow);
+    for (let i = 0; i < hours.length; i++) {
+      let tdElem = document.createElement('td')
+      tdElem.textContent = `${hours[i]}`
+      tableRow.appendChild(tdElem);
+    }
+    let firstRow = document.createElement('tr');
+    tableElement.appendChild(firstRow);
+    for (let i = 0; i < hours.length; i++) {
+      let firstElem = document.createElement('td')
+      firstElem.textContent = `${this.dailyTotal[0]}`
+      firstRow.appendChild(firstElem);
+    }
+    
+    
+  }
 }
 
-
+Store.prototype.render = function () {
+  return randomInRange(3, 12) + ' months';
+}
 
 let Seattle = new Store('Seattle', 23, 65, 6.3);
 
 Seattle.calculateCookiesPerHour();
 
+Seattle.tableRender();
 console.log(Seattle);
 
 // console.log(Seattle);
