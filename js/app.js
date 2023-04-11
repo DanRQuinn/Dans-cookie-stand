@@ -2,7 +2,7 @@
 
 let hours = ['6 am', '7 am', '8 am', '9 am', '10 am', '11 am', '12 pm', '1 pm', '2 pm', '3 pm', '4 pm', '5 pm', '6 pm', '7 pm', 'Total']
 
-let storeContainer = document.getElementById("seattleList");
+let seattleContainer = document.getElementById("seattleList");
 
 let seattleStore = {
   name: 'Seattle',
@@ -26,11 +26,10 @@ let seattleStore = {
     for (let i = 0; i < hours.length - 1; i++) {
       let li = document.createElement('li');
       li.textContent = `${hours[i]}: ${this.cookiesSoldPerHourArray[i]} cookies`;
-      storeContainer.appendChild(li);
-    }
-    let li = document.createElement('li');
+      seattleContainer.appendChild(li);
+    } let li = document.createElement('li');
     li.textContent = `Total: ${this.dailyTotal} cookies`;
-    storeContainer.appendChild(li);
+    seattleContainer.appendChild(li);
   }
 }
 
