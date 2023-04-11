@@ -56,7 +56,7 @@ function Store(name, min, max, avg) {
     tableElement.appendChild(firstRow);
     for (let i = 0; i < hours.length; i++) {
       let firstElem = document.createElement('td')
-      firstElem.textContent = `${this.dailyTotal[0]}`
+      firstElem.textContent = `${this.cookiesPerHourArray [i]}`
       firstRow.appendChild(firstElem);
     }
     
