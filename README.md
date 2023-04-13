@@ -9,11 +9,14 @@ This is a site that tracks cookie sales accross multiple locations
 ### Links and Resources
 
 * [submission PR](http://xyz.com)
-* Any Links you used as reference
+
+[10 CSS HTML Form Designs](https://www.sanwebe.com/2014/08/css-html-forms-designs)
 
 ### Lighthouse Accessibility Report Score
 
-![Lighthouse Score](img/Screenshot%202023-04-12%20at%205.21.55%20PM.png)
+![Lighthouse Score 1](img/Screenshot%202023-04-12%20at%205.21.55%20PM.png)
+
+![Lighthouse Score 2](img/Screenshot%202023-04-13%20at%204.00.26%20PM.png)
 
 * Provide a screenshot of your score after running a Lighthouse Accessibility report.
 
