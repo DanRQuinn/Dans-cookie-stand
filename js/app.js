@@ -5,62 +5,64 @@ let hours = ['6 am', '7 am', '8 am', '9 am', '10 am', '11 am', '12 pm', '1 pm', 
 const tableElement = document.getElementById('Table');
 
 function Store(name, min, max, avg) {
-  this.name = name,
-  this.min = min,
-  this.max = max,
-  this.avg = avg,
-  this.cookiesPerHourArray = [],
-  this.dailyTotal = 0,
+  this.name = name;
+  this.min = min;
+  this.max = max;
+  this.avg = avg;
+  this.cookiesPerHourArray = [];
+  this.dailyTotal = 0;
   this.generateRandomNumberOfC = function () {
     return Math.floor(Math.random() * (this.max - this.min + 1) + this.min);
-  },
-    this.calculateCookiesPerHour = function () {
-      for (let i = 0; i < hours.length; i++) {
-        let randomNumberOfCustomers = this.generateRandomNumberOfC();
-        let cookiesSoldPerHour = Math.round(randomNumberOfCustomers * this.avg);
-        this.cookiesPerHourArray.push(cookiesSoldPerHour);
-        this.dailyTotal += cookiesSoldPerHour;
-      }
-    },
-    this.tableRender = function () {
-      this.calculateCookiesPerHour();
-      let firstRow = document.createElement('tr');
-      tableElement.appendChild(firstRow);
-      let cityName = document.createElement('td');
-      cityName.textContent = this.name;
-      firstRow.appendChild(cityName);
-
-      for (let i = 0; i < hours.length; i++) {
-        let firstElem = document.createElement('td')
-        firstElem.textContent = `${this.cookiesPerHourArray[i]}`
-        firstRow.appendChild(firstElem);
-      }
-      let total = document.createElement('td');
-      total.textContent = this.dailyTotal
-      firstRow.appendChild(total)
+  };
+  this.calculateCookiesPerHour = function () {
+    for (let i = 0; i < hours.length; i++) {
+      let randomNumberOfCustomers = this.generateRandomNumberOfC();
+      let cookiesSoldPerHour = Math.round(randomNumberOfCustomers * this.avg);
+      this.cookiesPerHourArray.push(cookiesSoldPerHour);
+      this.dailyTotal += cookiesSoldPerHour;
     }
+  };
+  this.tableRender = function () {
+    this.calculateCookiesPerHour();
+    let firstRow = document.createElement('tr');
+    tableElement.appendChild(firstRow);
+    let cityName = document.createElement('td');
+    cityName.textContent = this.name;
+    firstRow.appendChild(cityName);
+
+    for (let i = 0; i < hours.length; i++) {
+      let firstElem = document.createElement('td')
+      firstElem.textContent = `${this.cookiesPerHourArray[i]}`
+      firstRow.appendChild(firstElem);
+    }
+    let total = document.createElement('td');
+    total.textContent = this.dailyTotal
+    firstRow.appendChild(total)
+  }
 }
 function renderHours() {
-  let tdElem = document.createElement('td');
-  tableElement.appendChild(tdElem);
+  let tr = document.createElement('tr');
+  tableElement.appendChild(tr);
+  let thElem = document.createElement('th');
+  tr.appendChild(thElem);
   for (let i = 0; i < hours.length; i++) {
-    let tdElem = document.createElement('td');
-    tdElem.textContent = `${hours[i]}`
-    tableElement.appendChild(tdElem);
+    let thElem = document.createElement('th');
+    thElem.textContent = `${hours[i]}`
+    tr.appendChild(thElem);
   }
-  let total = document.createElement('td');
+  let total = document.createElement('th');
   total.textContent = "Daily Location Total"
-  tableElement.appendChild(total);
+  tr.appendChild(total);
 }
 
-function storeTotal(){
+function storeTotal() {
   let timeTotal = document.createElement('td');
   timeTotal.textContent = "Total";
   tableElement.appendChild(timeTotal);
   let hourly2 = 0;
   for (let i = 0; i < hours.length; i++) {
     let hourly = 0;
-    for(let j = 0; j < storeArray.length; j++){
+    for (let j = 0; j < storeArray.length; j++) {
       hourly += storeArray[j].cookiesPerHourArray[i];
       hourly2 += storeArray[j].cookiesPerHourArray[i];
     }
