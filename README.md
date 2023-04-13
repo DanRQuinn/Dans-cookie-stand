@@ -13,6 +13,8 @@ This is a site that tracks cookie sales accross multiple locations
 
 ### Lighthouse Accessibility Report Score
 
+![Lighthouse Score](img/Screenshot%202023-04-12%20at%205.21.55%20PM.png)
+
 * Provide a screenshot of your score after running a Lighthouse Accessibility report.
 
 ### Reflections and Comments
