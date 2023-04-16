@@ -6,10 +6,10 @@ console.log('form');
 
 let handleSubmit = function (event) {
   event.preventDefault();
-  let name = event.target.storeName.value;
-  let min = parseInt(event.target.minPerHour.value);
-  let max = parseInt(event.target.maxPerHour.value);
-  let avg = parseInt(event.target.avgPerHour.value);
+  const name = event.target.storeName.value;
+  const min = parseInt(event.target.minPerHour.value);
+  const max = parseInt(event.target.maxPerHour.value);
+  const avg = parseInt(event.target.avgPerHour.value);
   let newStore = new Store(
     name,
     min,
@@ -19,7 +19,7 @@ let handleSubmit = function (event) {
   storeArray.push(newStore);
   // firstRow.removeChild(total)
   newStore.tableRender();
-  storeTotal();
+  renderFooter();
 
 }
 
@@ -85,7 +85,7 @@ function renderHours() {
   tr.appendChild(total);
 }
 
-function storeTotal() {
+function renderFooter() {
   let footer = document.querySelector('tfoot');
   if (footer){
     footer.innerHTML = '';
@@ -125,7 +125,7 @@ Tokyo.tableRender();
 Dubai.tableRender();
 Paris.tableRender();
 Lima.tableRender();
-storeTotal();
+renderFooconst();
 // newStore.tableRender();
 
 
